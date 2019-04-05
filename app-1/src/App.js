@@ -1,18 +1,23 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
+// import Comp1 from "./comps.Comp1.jsx";
 
 class App extends Component {
+  state = {
+    message: ''
+  }
+
+  handleChange = (e) => {
+    this.setState({
+      message: e.target.value
+    })
+  }
+
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <input onChange={this.handleChange} type='text'></input>
+        <p>{this.state.message}</p>
       </div>
     );
   }
